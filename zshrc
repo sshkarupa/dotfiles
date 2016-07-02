@@ -1,5 +1,5 @@
 # Path to your oh-my-zsh installation.
-export ZSH=/home/sergey/.oh-my-zsh
+export ZSH=$HOME/.oh-my-zsh
 
 export TERM="xterm-256color"
 
@@ -8,7 +8,8 @@ export TERM="xterm-256color"
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
 #ZSH_THEME="bureau"
-ZSH_THEME="excid3"
+#ZSH_THEME="excid3"
+ZSH_THEME="john"
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
 
@@ -64,11 +65,11 @@ source $ZSH/oh-my-zsh.sh
 # export LANG=en_US.UTF-8
 
 # Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
+if [[ -n $SSH_CONNECTION ]]; then
+  export EDITOR='vim'
+else
+  export EDITOR='mvim'
+fi
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
@@ -76,6 +77,13 @@ source $ZSH/oh-my-zsh.sh
 # ssh
 # export SSH_KEY_PATH="~/.ssh/dsa_id"
 
+export PATH="$HOME/.rbenv/bin:$PATH"
+eval "$(rbenv init -)"
+export PATH="$HOME/.rbenv/plugins/ruby-build/bin:$PATH"
+export PATH="/usr/local/share/npm/bin:$PATH"
+
+### Added by the Heroku Toolbelt
+export PATH="/usr/local/heroku/bin:$PATH"
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
@@ -84,25 +92,10 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-export PATH="$HOME/.rbenv/bin:$PATH"
-eval "$(rbenv init -)"
-export PATH="$HOME/.rbenv/plugins/ruby-build/bin:$PATH"
 
-export PATH="/usr/local/share/npm/bin:$PATH"
+### Aliases ###
 
-# alias for git
-alias gca='git commit -a'
-alias gcam='git commit -a -m '
-alias gl='git log --pretty=format:"%an, %ar, %h: %s"'
-alias gd='git diff'
-alias gb='git branch'
-alias gco='git checkout'
-alias gp='git pull --rebase'
-alias gpp='git pull --rebase git push'
-alias gph='git push'
-alias gm='git merge'
-
-#alias for rails
+# Aliases for rails development
 alias rc='rails console'
 alias rg='rails generate'
 alias rs='rails s'
@@ -110,19 +103,14 @@ alias r='rails'
 alias be='bundle exec'
 alias bes='bundle exec spring'
 
-#alias for deploy
-alias deployer='ssh deployer@148.251.129.248 -p 3542'
+# alias for deploy
+#alias deployer='ssh deployer@148.251.129.248 -p 3542'
 
-#alias for private_pub
-alias pp_start='rackup private_pub.ru -s thin -E production'
+# alias for private_pub
+#alias pp_start='rackup private_pub.ru -s thin -E production'
 
-alias lgt='gnome-session-quit'
+alias rm='rm -i'
 
-### Added by the Heroku Toolbelt
-export PATH="/usr/local/heroku/bin:$PATH"
-
-# Change VAGRANT_HOME
-export VAGRANT_HOME="/media/sergey/Data/.vagrant.d" 
-
-# alias for navigation
-alias code='cd /media/sergey/Data/code'
+alias vimwiki='gvim ~/Documents/txt/vim&'
+alias wiki='gedit ~/Documents/txt/wiki&'
+alias tmux='tmux attach || tmux new'

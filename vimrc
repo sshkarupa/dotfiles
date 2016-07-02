@@ -10,12 +10,15 @@ Plug 'airblade/vim-gitgutter'
 Plug 'Raimondi/delimitMate'
 Plug 'scrooloose/nerdtree'
 Plug 'jistr/vim-nerdtree-tabs'
-Plug 'Valloric/YouCompleteMe' ", { 'do': 'python3 install.py --clang-completer' }
+"Plug 'Valloric/YouCompleteMe' ", { 'do': 'python3 install.py --clang-completer' }
 Plug 'rking/ag.vim'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'scrooloose/nerdcommenter'
+Plug 'mattn/emmet-vim'
 Plug 'slim-template/vim-slim'
 Plug 'tpope/vim-rails'
+Plug 'tpope/vim-surround'
+Plug 'kchmck/vim-coffee-script'
 "Plag 'tomtom/tcomment_vim'
 
 call plug#end()
@@ -52,7 +55,7 @@ let g:ctrlp_extensions = ['buffertag', 'tag', 'line', 'dir']"
 " nerdtree
 map <F9> :NERDTreeTabsToggle<CR>
 
-""" vim setup
+" vim setup
 ":colorscheme solarized
 colorscheme jellybeans
 let g:jellybeans_use_term_background_color = 1
@@ -74,6 +77,7 @@ set textwidth=80
 set colorcolumn=+1
 
 set t_Co=256
+set term=screen-256color
 
 set wildmenu
 set wildmode=full 
@@ -81,16 +85,22 @@ set wildmode=full
 " Softtabs, 2 spaces
 set tabstop=2 shiftwidth=2 softtabstop=2 smarttab expandtab
 
-"set gfn=Monaco:h10
-set guifont=Monaco:h10
+if has("gui_running")
+  set guifont=Monaco\ 10
+end
+
 set laststatus=2
 set cursorline
 set autoindent
+set pastetoggle=<F4>
 set ruler
 set mousehide
 set mouse=a
 set ignorecase
 set hlsearch
+
+" Use system clipboard for copy/paste
+set clipboard=unnamedplus
 
 " Display extra whitespace
 set list listchars=tab:»·,trail:·,nbsp:·
@@ -101,3 +111,6 @@ set nojoinspaces
 set enc=utf-8
 set fencs=ucs-bom,utf-8,default,latin1
 
+" Change default <leader> mapping
+let mapleader = ","
+set timeout timeoutlen=1500
