@@ -1,0 +1,23 @@
+[user]
+  name = Sergey Shkarupa
+  email = s.shkarupa@gmail.com
+  signingkey = 0B4678B4
+[alias]
+  st = status
+  ci = commit
+  br = branch
+  co = checkout
+  ; hist = log --pretty=format:\"%h %G? %ad | %s%d [%an]\" --graph --date=short
+  hist = log --pretty=format:\"%h %G? %aN | %s%d\" --graph --date=short
+[color]
+  ui = true
+[core]
+  editor = vim
+[push]
+  default = current
+[branch]
+  autosetuprebase = always
+[pull]
+  default = matching
+[init]
+  templatedir = ~/.git_template
