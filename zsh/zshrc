@@ -18,7 +18,7 @@ antigen bundles <<EOBUNDLES
 EOBUNDLES
 
 # Load custom theme
-antigen theme $HOME/.zsh/theme/simple  --no-local-clone
+antigen theme $HOME/.zsh/theme simple --no-local-clone
 
 # Tell antigen that you're done
 antigen apply
