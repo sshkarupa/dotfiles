@@ -1,3 +1,5 @@
+[init]
+  templatedir = ~/.git_template
 [user]
   name = Sergey Shkarupa
   email = s.shkarupa@gmail.com
@@ -23,5 +25,3 @@
   autosetuprebase = always
 [pull]
   default = matching
-[init]
-  templatedir = ~/.git_template
