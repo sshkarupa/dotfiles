@@ -10,6 +10,7 @@ git clone git@github.com:sshkarupa/dotfiles.git ~/.dotfiles
 
 1. git
   ```
+  mkdir -p ~/.git_template/hooks
   ln -s ~/.dotfiles/git/gitconfig ~/.gitconfig
   ln -s ~/.dotfiles/git/pre-commit ~/.git_template/hooks/pre-commit
   ```
@@ -27,9 +28,11 @@ git clone git@github.com:sshkarupa/dotfiles.git ~/.dotfiles
 4. vim
   ```
   mkdir -p  ~/.vim/autoload
+  mkdir -p ~/.vim/spell
   ln -s ~/.dotfiles/vim ~/.vim
   ln -s ~/.dotfiles/vim/vimrc ~/.vimrc
-  ln -s ~/.dotfiles/vim-plug/plug.vim ~/.vim/autoload/plug.vim
+  ln -s ~/.dotfiles/vim/plugins.vim ~/.vim/plugins.vim
+  ln -s ~/.dotfiles/vim/vim-plug/plug.vim ~/.vim/autoload/plug.vim
   ```
 
 5. zsh
