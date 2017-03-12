@@ -12,7 +12,6 @@ git clone git@github.com:sshkarupa/dotfiles.git ~/.dotfiles
 ```
 ln -s ~/.dotfiles/git/gitconfig ~/.gitconfig
 ln -s ~/.dotfiles/git/pre-commit ~/.git_template/hooks/pre-commit
-git config --global init.templatedir '~/.git_template'
 ```
 
 2. ssh [TODO]
