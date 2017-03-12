@@ -1,0 +1,50 @@
+snippet spec "require spec_helper"
+# frozen_string_literal: true
+require 'spec_helper'
+
+RSpec.describe ${1:ClassName}, type: :${2:class_type} do
+	context '${3:describe your context}' do
+		$4
+	end
+end
+endsnippet
+
+snippet des "describe '...' do ... end" b
+describe '$1' do
+	${0:${VISUAL}}
+end
+endsnippet
+
+snippet con "context '...' do ... end" b
+context '${1:describe your context}' do
+	${0:${VISUAL}}
+end
+endsnippet
+
+snippet itt "it { ... }" b
+it { ${0:${VISUAL}} }
+endsnippet
+
+snippet its "its(:...) { ... }" b
+its(:$1) { ${0:${VISUAL}} }
+endsnippet
+
+snippet it "it '...' do ... end" b
+it '$1' do
+	${0:${VISUAL}}
+end
+endsnippet
+
+snippet let "let(:...) { ... }" b
+let(:$1) { create(:${2:$1}) }$0
+endsnippet
+
+snippet bef "before do ... end" b
+before do
+	${0:${VISUAL}}
+end
+endsnippet
+
+snippet exp "expect" b
+expect($1).to $0
+endsnippet

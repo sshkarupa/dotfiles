@@ -2,6 +2,10 @@
   name = Sergey Shkarupa
   email = s.shkarupa@gmail.com
   signingkey = 0B4678B4
+[github]
+  user = sshkarupa
+[gitlab]
+  user = sshkarupa
 [alias]
   st = status
   ci = commit

@@ -1,0 +1,32 @@
+source ~/.zsh/antigen/antigen.zsh
+
+# Add Oh-My-ZSH as an API for plugins and theme
+antigen use oh-my-zsh
+
+# Load plugins
+antigen bundles <<EOBUNDLES
+  git
+  tmux
+  ruby
+  # rails
+  bundler
+  command-not-found
+
+  zsh-users/zsh-completions
+  zsh-users/zsh-syntax-highlighting
+  tmuxinator/tmuxinator completion/tmuxinator.zsh
+EOBUNDLES
+
+# Load custom theme
+antigen theme $HOME/.zsh/theme/simple  --no-local-clone
+
+# Tell antigen that you're done
+antigen apply
+
+# To have paths colored instead of underlined
+typeset -A ZSH_HIGHLIGHT_STYLES
+ZSH_HIGHLIGHT_STYLES[path]='fg=cyan'
+
+# Source all the configs
+source ~/.zsh/exports.zsh
+source ~/.zsh/aliases.zsh

@@ -1,0 +1,119 @@
+snippet enc
+# encoding: utf-8
+endsnippet
+
+snippet frozen
+# frozen_string_literal: true
+endsnippet
+
+snippet #!
+#!/usr/bin/env ruby
+endsnippet
+
+snippet def "def <name>"
+def ${1:method_name}
+	$0
+end
+endsnippet
+
+snippet defa "def <name>..."
+def ${1:method_name}${2:(${3:*args})}
+	$0
+end
+endsnippet
+
+snippet r "attr_reader"
+attr_reader :${0:attr_names}
+endsnippet
+
+snippet w "attr_writer"
+attr_writer :${0:attr_names}
+endsnippet
+
+snippet rw "attr_accessor"
+attr_accessor :${0:attr_names}
+endsnippet
+
+snippet defs "def self"
+def self.${1:class_method_name}
+	$0
+end
+endsnippet
+
+snippet definit "def initialize"
+def initialize(${1:args})
+	$0
+end
+endsnippet
+
+snippet defmm "def method_missing"
+def method_missing(meth, *args, &blk)
+	$0
+end
+endsnippet
+
+snippet cla "class .. end" b
+class ${1:class_name}
+	$0
+end
+endsnippet
+
+snippet mod "module .. end"
+module ${1:module_name}
+	$0
+end
+endsnippet
+
+snippet pry "binding.pry" b
+binding.pry
+endsnippet
+
+snippet bpry "pry + binding.pry" b
+require 'pry'
+binding.pry
+endsnippet
+
+
+snippet concern "concern template"
+module Concerns
+	module ${1:______}able
+		module ClassMethods
+			$2
+		end
+
+		module InstanceMethods
+			$3
+		end
+
+		def self.included(base)
+			base.extended ClassMethods
+			base.class_eval { include InstanceMethods }
+		end
+	end
+end
+endsnippet
+
+snippet mig "Sequel migration"
+Sequel.migration do
+	change do
+		create_table :${1:name} do
+			primary_key :id
+			$2
+			${3:DateTime :created_at}
+			${4:DateTime :updated_at}
+		end
+	end
+end
+endsnippet
+
+snippet factory "FactoryGirl.define"
+require '${1:path_to_model}'
+
+FactoryGirl.define do
+	${2:to_create(&:save)}
+
+	factory :${3:name}, class: ${4:ClassName} do
+		$5
+	end
+end
+endsnippet
