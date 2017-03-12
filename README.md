@@ -14,15 +14,17 @@ ln -s ~/.dotfiles/git/gitconfig ~/.gitconfig
 ln -s ~/.dotfiles/git/pre-commit ~/.git_template/hooks/pre-commit
 git config --global init.templatedir '~/.git_template'
 ```
-2. ssh [TODO]
 
+2. ssh [TODO]
 ```
 ln -s ~/.dotfiles/ssh/config ~/.ssh/config
 ```
+
 3. tmux
 ```
 ln -s ~/.dotfiles/tmux/tmux.conf ~/.tmux.conf
 ```
+
 4. vim
 ```
 mkdir -p  ~/.vim/autoload
@@ -30,6 +32,7 @@ ln -s ~/.dotfiles/vim ~/.vim
 ln -s ~/.dotfiles/vim/vimrc ~/.vimrc
 ln -s ~/.dotfiles/vim-plug/plug.vim ~/.vim/autoload/plug.vim
 ```
+
 5. zsh
 ```
 ln -s ~/.dotfiles/zsh ~/.zsh
