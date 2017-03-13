@@ -27,7 +27,7 @@ function link {
   if [ "$forseLN" = 'true' ]; then
     ln -sf $1 $2
   else
-    # if [[ -e "$2" ]]; then
+    if [[ -e "$2" ]]; then
       echo "$2 already exists, if it is a symlink it will be deleted"
       if [[ -h "$2" ]]; then
         rm -rf "$2"
@@ -44,7 +44,7 @@ function link {
 }
 
 function installConfigs {
-  #ZSH
+  # ZSH
   update zsh
   echo "Installing ZSH Config"
   link $DOTFILE_DIR/zsh ~/.zsh
@@ -54,7 +54,7 @@ function installConfigs {
   fi
   echo ""
 
-  #git
+  # Git
   update git
   echo "Installing Git Config"
   mkdir -p ~/.git_template/hooks
@@ -68,15 +68,7 @@ function installConfigs {
   link $DOTFILE_DIR/tmux/tmux.conf ~/.tmux.conf
   echo ""
 
-  #SSH
-  update openssh-client
-  update openssh-server
-  echo "Installing SSH Config"
-  mkdir -p ~/.ssh/
-  link $DOTFILE_DIR/ssh/config ~/.ssh/config
-  echo ""
-
-  #VIM
+  # Vim
   update vim
   echo "Installing VIM config"
   mkdir -p  ~/.vim/autoload
@@ -98,10 +90,10 @@ function main {
 
   while getopts 'nufi' flag; do
     case "${flag}" in
-      i) noUpdate='true' ;;
       n) noLN='true' ;;
       u) autoUpdate='true' ;;
       f) forseLN='true' ;;
+      i) noUpdate='true' ;;
       *) error "Unexpected option ${flag}" ;;
     esac
   done
