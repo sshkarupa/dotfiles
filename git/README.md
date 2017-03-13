@@ -4,7 +4,7 @@ Place `pre-commit` in `~/.git_template/hooks/pre-commit`
 
 Add `~/.git_template` as your `templatedir` by running:
 
-``` sh
+```
 git config --global init.templatedir '~/.git_template'
 ```
 
@@ -18,4 +18,4 @@ You will also need to re-run `git init` if any changes are made to the `pre-comm
 The original script was created by Jamie Lawrence,
 go check out his [blog post] on it.
 
-[blog post]: http://jamie.ideasasylum.com/2013/02/preventing-the-stupid-mistakes-like-committing-focustrue/
+[blog post]: http://jamie.ideasasylum.com/2013/02/06/preventing-the-stupid-mistakes-like-committing-focustrue/
