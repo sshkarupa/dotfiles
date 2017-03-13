@@ -71,13 +71,11 @@ function installConfigs {
   # Vim
   update vim
   echo "Installing VIM config"
-  mkdir -p  ~/.vim/autoload
-  mkdir -p  ~/.vim/spell
-  link $DOTFILE_DIR/vim ~/.vim
+  mkdir -p  ~/.vim/{autoload,spell}
   link $DOTFILE_DIR/vim/vimrc ~/.vimrc
   link $DOTFILE_DIR/vim/vim-plug/plug.vim ~/.vim/autoload/plug.vim
-  link $DOTFILE_DIR/vim/vimrc ~/.vimrc
-  link $DOTFILE_DIR/vim/plagins.vim ~/.vim/plagins.vim
+  link $DOTFILE_DIR/vim/UltiSnips ~/.vim/
+  link $DOTFILE_DIR/vim/plugins.vim ~/.vim/plugins.vim
   vim +PlugInstall +qall
   echo ""
 }
