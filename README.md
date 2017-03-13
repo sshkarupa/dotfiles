@@ -3,46 +3,41 @@
 ### Instalation
 
 ```
-git clone git@github.com:sshkarupa/dotfiles.git ~/.dotfiles
+git clone git@github.com:sshkarupa/dotfiles.git ~/.dotfiles && cd ~/.dotfiles
+git submodules init
+git submodules update
 ```
 
 ### Symlinks config
 
-1. git
-  ```
-  mkdir -p ~/.git_template/hooks
-  ln -s ~/.dotfiles/git/gitconfig ~/.gitconfig
-  ln -s ~/.dotfiles/git/pre-commit ~/.git_template/hooks/pre-commit
-  ```
+#### Git
 
-2. ssh [TODO]
-  ```
-  ln -s ~/.dotfiles/ssh/config ~/.ssh/config
-  ```
+```
+mkdir -p ~/.git_template/hooks
+ln -s ~/.dotfiles/git/gitconfig ~/.gitconfig
+ln -s ~/.dotfiles/git/pre-commit ~/.git_template/hooks/pre-commit
+```
 
-3. tmux
-  ```
-  ln -s ~/.dotfiles/tmux/tmux.conf ~/.tmux.conf
-  ```
+#### Tmux
 
-4. vim
-  ```
-  mkdir -p  ~/.vim/autoload
-  mkdir -p ~/.vim/spell
-  ln -s ~/.dotfiles/vim ~/.vim
-  ln -s ~/.dotfiles/vim/vimrc ~/.vimrc
-  ln -s ~/.dotfiles/vim/plugins.vim ~/.vim/plugins.vim
-  ln -s ~/.dotfiles/vim/vim-plug/plug.vim ~/.vim/autoload/plug.vim
-  ```
+```
+ln -s ~/.dotfiles/tmux/tmux.conf ~/.tmux.conf
+```
 
-5. zsh
-  ```
-  ln -s ~/.dotfiles/zsh ~/.zsh
-  ln -s ~/.dotfiles/zsh/zshrc ~/.zshrc
-  ```
+#### Vim
 
-### TODO
+```
+mkdir -p  ~/.vim/autoload
+mkdir -p ~/.vim/spell
+ln -s ~/.dotfiles/vim ~/.vim
+ln -s ~/.dotfiles/vim/vimrc ~/.vimrc
+ln -s ~/.dotfiles/vim/plugins.vim ~/.vim/plugins.vim
+ln -s ~/.dotfiles/vim/vim-plug/plug.vim ~/.vim/autoload/plug.vim
+```
 
-1. Add ssh_config
-2. Add gitignore_global
-3. Add install.sh
+#### Zsh
+
+```
+ln -s ~/.dotfiles/zsh ~/.zsh
+ln -s ~/.dotfiles/zsh/zshrc ~/.zshrc
+```
