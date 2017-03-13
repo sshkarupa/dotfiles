@@ -5,8 +5,6 @@ function pull {
   git pull origin master
   git submodule init
   git submodule update
-  # git submodule foreach git submodule update --init
-  # git submodule foreach update --init
 }
 
 function update {
@@ -14,7 +12,7 @@ function update {
     if [ "$autoUpdate" == 'true' ]; then
       sudo apt-get install "$@"
     elif [ "$autoUpdate" == 'false' ]; then
-      echo "Do you want to update $@"
+      echo "Do you want to update $@?"
       read update
       if [ "$update" == y ]; then
         sudo apt-get install "$@"
@@ -59,7 +57,7 @@ function installConfigs {
   echo "Installing Git Config"
   mkdir -p ~/.git_template/hooks
   link $DOTFILE_DIR/git/gitconfig ~/.gitconfig
-  link $DOTFILE_DIR/git/pre-commit ~/.git_template/hooks/pre-commit
+  link $DOTFILE_DIR/git/pre-commit ~/.git_template/hooks/
   echo ""
 
   # Tmux
@@ -73,16 +71,16 @@ function installConfigs {
   echo "Installing VIM config"
   mkdir -p  ~/.vim/{autoload,spell}
   link $DOTFILE_DIR/vim/vimrc ~/.vimrc
-  link $DOTFILE_DIR/vim/vim-plug/plug.vim ~/.vim/autoload/plug.vim
+  link $DOTFILE_DIR/vim/vim-plug/plug.vim ~/.vim/autoload/
   link $DOTFILE_DIR/vim/UltiSnips ~/.vim/
-  link $DOTFILE_DIR/vim/plugins.vim ~/.vim/plugins.vim
+  link $DOTFILE_DIR/vim/plugins.vim ~/.vim/
   vim +PlugInstall +qall
   echo ""
 }
 
 function main {
-  autoUpdate='false'
   noLN='false'
+  autoUpdate='false'
   forseLN='false'
   noUpdate='false'
 
@@ -107,5 +105,3 @@ function main {
 }
 
 main "$@"
-
-# see https://github.com/HeroCC/dotfiles/blob/master/install.sh

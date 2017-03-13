@@ -15,7 +15,7 @@ git submodules update
 ```
 mkdir -p ~/.git_template/hooks
 ln -s ~/.dotfiles/git/gitconfig ~/.gitconfig
-ln -s ~/.dotfiles/git/pre-commit ~/.git_template/hooks/pre-commit
+ln -s ~/.dotfiles/git/pre-commit ~/.git_template/hooks/
 ```
 
 #### Tmux
@@ -27,12 +27,11 @@ ln -s ~/.dotfiles/tmux/tmux.conf ~/.tmux.conf
 #### Vim
 
 ```
-mkdir -p  ~/.vim/autoload
-mkdir -p ~/.vim/spell
-ln -s ~/.dotfiles/vim ~/.vim
+mkdir -p  ~/.vim/{autoload,spell}
 ln -s ~/.dotfiles/vim/vimrc ~/.vimrc
-ln -s ~/.dotfiles/vim/plugins.vim ~/.vim/plugins.vim
-ln -s ~/.dotfiles/vim/vim-plug/plug.vim ~/.vim/autoload/plug.vim
+ln -s ~/.dotfiles/vim/vim-plug/plug.vim ~/.vim/autoload/
+ln -s ~/.dotfiles/vim/plugins.vim ~/.vim/
+ln -s ~/.dotfiles/vim/UltiSnips ~/.vim/
 ```
 
 #### Zsh
