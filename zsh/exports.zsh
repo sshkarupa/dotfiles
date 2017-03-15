@@ -25,5 +25,3 @@ if [ -d $HOME/.pyenv ]; then
   eval "$(pyenv init - zsh)"
   eval "$(pyenv virtualenv-init - zsh)"
 fi
-
-export ANTIGEN_COMPDUMPFILE=$HOME/.zcompdump
