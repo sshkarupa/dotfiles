@@ -11,6 +11,13 @@ alias gl='git log --pretty=format:"%an, %ar, %h: %s"'
 alias be='bundle exec'
 alias bes='bundle exec spring'
 
+alias -s rb=vim # opens ruby files in vim
+# $ foo.rb
+# vim => foo.rb
+alias -g gp='| grep -i' # creates a global alias for grep
+# $ ps ax gp ruby
+# (all ruby process will be displayed)
+
 # Vagrant aliases
 if which vagrant &> /dev/null; then
   alias vup="vagrant up"
