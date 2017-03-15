@@ -67,6 +67,13 @@ call plug#end()
 
 "
 " PLUGINS SETTINGS ============================
+
+" Custom Highlights
+let g:jellybeans_overrides = {
+\  'rubyRegexpDelimiter': { 'guifg': 'de5577' },
+\  'rubyRegexp': { 'guifg': 'de5577' },
+\  'rubyRegexpSpecial': { 'guifg': 'de5577' }
+\}
 "
 " Ag --------------------------------------------
 if executable("ag")
