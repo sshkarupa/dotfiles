@@ -204,30 +204,36 @@ autocmd FileType html,css,sass,scss,slim,erb imap <expr> <tab> emmet#expandAbbrI
 " let g:user_emmet_expandabbr_key='<Tab>'
 " imap <expr> <tab> emmet#expandAbbrIntelligent("\<tab>")
 
-" syntastic --------------------------------------
+" Syntastic --------------------------------------
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 
 let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
+let g:syntastic_auto_loc_list = 0 " Don't auto open/close location list
+let g:syntastic_check_on_open = 0
 let g:syntastic_check_on_wq = 0
-let g:syntastic_ruby_checkers = ['rubocop', 'mri']
+let g:syntastic_enable_signs = 0
+let g:syntastic_mode_map = {
+    \ 'mode': 'passive',
+    \ 'active_filetypes': [],
+    \ 'passive_filetypes': [] }
+let g:syntastic_ruby_checkers = ['rubocop']
+nnoremap <F6> :SyntasticCheck<CR> :lopen<CR>
 
-" vim-rubocop -----------------------------------
+" Vim-rubocop -----------------------------------
 " let g:vimrubocop_config = '/path/to/rubocop.yml'
 let g:vimrubocop_keymap = 0
 nmap <Leader>r :RuboCop<CR>
 
-" vim-markdown ----------------------------------
+" Vim-markdown ----------------------------------
 let g:vim_markdown_folding_disabled = 1
 let g:vim_markdown_new_list_item_indent = 2
 
 " Tagbar ----------------------------------------
 nmap <F8> :TagbarToggle<CR>
 
-" surround --------------------------------------
+" Surround --------------------------------------
 " ,# surround a word with #{ruby interpolation}
 map ,# ysiw#
 vmap ,# c#{<C-R>"}<ESC>
@@ -273,4 +279,4 @@ let g:UltiSnipsJumpBackwardTrigger ="<s-tab>"
 
 " If you want :UltiSnipsEdit to split your window.
 let g:UltiSnipsEditSplit="vertical"
-let g:UltiSnipsSnippetsDir = "~/.vim/UltiSnips"
+let g:UltiSnipsSnippetDirectories='~/.dotfiles/vim/UltiSnips'
