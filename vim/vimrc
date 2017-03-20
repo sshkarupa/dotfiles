@@ -23,7 +23,7 @@ syntax on
 " the plugins.
 let mapleader=","
 
-" =============== Vim-Pluge Initialization ===============
+" =============== Vim-Plug Initialization ===============
 " This loads all the plugins specified in ~/.vim/plugins.vim
 if filereadable(expand("~/.vim/plugins.vim"))
   source ~/.vim/plugins.vim
