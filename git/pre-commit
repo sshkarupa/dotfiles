@@ -1,17 +1,16 @@
 #!/usr/bin/env ruby
-require 'English'
 
 keywords = %w(binding.pry byebug focus: throw console.log)
-files_changed = %x(`git diff --cached --name-only --diff-filter=ACM`).split
-%x(`git grep -q -E "#{keywords.join('|')}" #{files_changed.join(' ')}`)
+files_changed = %x(git diff --cached --name-only --diff-filter=ACM).split
+%x(git grep -q -E "#{keywords.join('|')}" #{files_changed.join(' ')})
 
-if $CHILD_STATUS.exitstatus.zero?
-  puts '# Check following lines:'
+if $?.exitstatus.zero?
+  puts "# Check following lines:"
   files_changed.each do |file|
     keywords.each do |keyword|
-      %x(`git grep -q #{keyword} #{file}`)
-      if $CHILD_STATUS.exitstatus.zero?
-        line = %x(`git grep -n #{keyword} #{file} | awk -F ":" '{print $2}'`).split.join(', ')
+      %x(git grep -q #{keyword} #{file})
+      if $?.exitstatus.zero?
+        line = %x(git grep -n #{keyword} #{file} | awk -F ":" '{print $2}').split.join(', ')
         puts "#\t\033[31m#{file}:#{line}\033[0m #{keyword}"
       end
     end
