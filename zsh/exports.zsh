@@ -16,9 +16,7 @@ if [ -d $HOME/.rbenv ]; then
 fi
 
 export PATH="/usr/local/go/bin:$PATH"
-
 export PATH="/usr/local/share/npm/bin:$PATH"
-
 export PATH="/usr/local/heroku/bin:$PATH"
 
 # if pyenv is present, configure it for use
