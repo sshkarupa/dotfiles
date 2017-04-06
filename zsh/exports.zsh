@@ -15,6 +15,8 @@ if [ -d $HOME/.rbenv ]; then
   export PATH="$HOME/.rbenv/plugins/ruby-build/bin:$PATH"
 fi
 
+export PATH="/usr/local/go/bin:$PATH"
+
 export PATH="/usr/local/share/npm/bin:$PATH"
 
 export PATH="/usr/local/heroku/bin:$PATH"
