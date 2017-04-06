@@ -30,3 +30,7 @@ ZSH_HIGHLIGHT_STYLES[path]='fg=cyan'
 # Source all the configs
 source ~/.zsh/exports.zsh
 source ~/.zsh/aliases.zsh
+
+# Zsh completion for docker-compose
+fpath=(~/.zsh/completion $fpath)
+autoload -Uz compinit && compinit -i
