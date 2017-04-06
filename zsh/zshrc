@@ -9,6 +9,7 @@ antigen bundles <<EOBUNDLES
   tmux
   ruby
   bundler
+  docker
   command-not-found
 
   zsh-users/zsh-completions
