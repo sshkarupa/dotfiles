@@ -31,6 +31,12 @@ if which vagrant &> /dev/null; then
   alias vp="vagrant provision"
   alias vdstr="vagrant destroy"
   alias vbu="vagrant box update"
+
+  # Show all alias related docker
+  valias() { alias | grep 'vagrant' | sed "s/^\([^=]*\)=\(.*\)/\1 => \2/"| sed "s/['|\']//g" | sort; }
+
+  # Stop all running vagrant
+  vstop() { vagrant global-status | grep virtualbox | cut -c 1-9 | while read line; do echo $line; vagrant halt $line; done; }
 fi
 
 # Apt-fast stuff
