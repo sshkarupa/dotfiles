@@ -62,6 +62,9 @@ Plug 'SirVer/ultisnips'
 " Perform all your vim insert mode completions with Tab
 Plug 'ervandew/supertab'
 
+" Vim configuration files for Elixir http://elixir-lang.org/
+Plug 'elixir-lang/vim-elixir'
+
 " Initialize plugin system
 call plug#end()
 
