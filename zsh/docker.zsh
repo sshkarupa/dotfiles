@@ -26,6 +26,9 @@ alias dki="docker run -i -t -P"
 # Execute interactive container, e.g., $dex base /bin/bash
 alias dex="docker exec -i -t"
 
+# Get volumes
+alias dv='docker volume ls'
+
 # Stop all containers
 dstop() { docker stop $(docker ps -a -q); }
 
@@ -36,7 +39,10 @@ drm() { docker rm $(docker ps -a -q); }
 alias drmf='docker stop $(docker ps -a -q) && docker rm $(docker ps -a -q)'
 
 # Remove all images
-dri() { docker rmi $(docker images -q); }
+# dri() { docker rmi $(docker images -q); }
+
+# Remove all untagged images
+dri() { docker rmi $(docker images | grep "^<none>" | awk "{print $3}"); }
 
 # Dockerfile build, e.g., $dbu tcnksm/test
 dbu() { docker build -t=$1 .; }
