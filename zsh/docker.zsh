@@ -33,16 +33,17 @@ alias dv='docker volume ls'
 dstop() { docker stop $(docker ps -a -q); }
 
 # Remove all containers
-drm() { docker rm $(docker ps -a -q); }
+drm() { docker rm $(docker ps -a -q -f status=exited); }
 
 # Stop and Remove all containers
 alias drmf='docker stop $(docker ps -a -q) && docker rm $(docker ps -a -q)'
 
 # Remove all images
-# dri() { docker rmi $(docker images -q); }
+dri() { docker rmi $(docker images -q); }
 
 # Remove all untagged images
-dri() { docker rmi $(docker images | grep "^<none>" | awk "{print $3}"); }
+# drui() { docker rmi -f $(docker images -q -f dangling=true); }
+# use instead docker image prune
 
 # Dockerfile build, e.g., $dbu tcnksm/test
 dbu() { docker build -t=$1 .; }
@@ -52,3 +53,9 @@ dalias() { alias | grep 'docker' | sed "s/^\([^=]*\)=\(.*\)/\1 => \2/"| sed "s/[
 
 # Bash into running container
 dbash() { docker exec -it $(docker ps -aqf "name=$1") bash; }
+
+# Sh into running container (for Alpine)
+dsh() { docker exec -it $(docker ps -aqf "name=$1") sh; }
+
+# Attach into running container
+dattach() { docker attach $(docker ps -aqf "name=$1"); }

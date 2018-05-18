@@ -62,3 +62,9 @@ if which apt-get &> /dev/null; then
   alias agar='sudo apt-get autoremove'
   alias agdu='sudo apt-get dist-upgrade'
 fi
+
+# restart network-namager
+alias netrestart='sudo service network-manager restart'
+
+# vault
+alias vault='docker exec -it vault-dev vault "$@"'

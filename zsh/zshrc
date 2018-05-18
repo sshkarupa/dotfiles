@@ -32,6 +32,7 @@ ZSH_HIGHLIGHT_STYLES[path]='fg=cyan'
 source ~/.zsh/exports.zsh
 source ~/.zsh/aliases.zsh
 source ~/.zsh/docker.zsh
+source ~/.zsh/secrets.zsh
 
 # Zsh completion for docker-compose
 fpath=(~/.zsh/completion $fpath)

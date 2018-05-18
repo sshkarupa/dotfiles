@@ -16,10 +16,13 @@ if [ -d $HOME/.rbenv ]; then
 fi
 
 export GOPATH=$HOME/code/go
+export GOBIN=$GOPATH/bin
+export PATH=$PATH:$GOBIN
 export PATH=$GOPATH/bin:$PATH
 export PATH=/usr/local/go/bin:$PATH
 export PATH=/usr/local/share/npm/bin:$PATH
 export PATH=/usr/local/heroku/bin:$PATH
+export PATH=/home/sergey/.cargo/bin:$PATH
 
 # if pyenv is present, configure it for use
 if [ -d $HOME/.pyenv ]; then

@@ -16,7 +16,6 @@ Plug 'Raimondi/delimitMate'
 
 " NERDtree
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
-Plug 'jistr/vim-nerdtree-tabs'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 
 " Search with Ag
@@ -43,15 +42,7 @@ Plug 'tpope/vim-surround'
 " Awesome Git wrapper
 Plug 'tpope/vim-fugitive'
 
-Plug 'godlygeek/tabular'
-
 Plug 'scrooloose/syntastic'
-
-" Tagbar is a class outline viewer for Vim
-Plug 'majutsushi/tagbar'
-
-" Vim motion on speed!
-Plug 'easymotion/vim-easymotion'
 
 " The Vim RuboCop plugin runs RuboCop and displays the results in Vim
 Plug 'ngmy/vim-rubocop'
@@ -59,11 +50,24 @@ Plug 'ngmy/vim-rubocop'
 " UltiSnips - The ultimate snippet solution for Vim.
 Plug 'SirVer/ultisnips'
 
-" Perform all your vim insert mode completions with Tab
-Plug 'ervandew/supertab'
-
 " Vim configuration files for Elixir http://elixir-lang.org/
-Plug 'elixir-lang/vim-elixir'
+" Plug 'elixir-lang/vim-elixir'
+Plug 'elixir-editors/vim-elixir'
+
+" Vastly improved Javascript indentation and syntax support in Vim
+Plug 'pangloss/vim-javascript'
+
+" React JSX syntax highlighting and indenting for vim
+Plug 'mxw/vim-jsx'
+
+" nginx conf highlighting
+Plug 'chr4/nginx.vim'
+
+" Support hashicorp/hcl format
+Plug 'fatih/vim-hclfmt'
+
+" Support toml format
+Plug 'cespare/vim-toml'
 
 " Initialize plugin system
 call plug#end()
@@ -79,7 +83,10 @@ let g:jellybeans_overrides = {
 \}
 "
 " Ag --------------------------------------------
-if executable("ag")
+let g:ctrlp_cache_dir = $HOME . '/.cache/ctrlp'
+if executable('ag')
+  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+  set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*/vendor/*,*/\.git/*
   " use ag over grep
   set grepprg=ag\ --nogroup\ --nocolor\ --ignore-case\ --column
   " sets the right grepformat.
@@ -213,19 +220,21 @@ set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 
 let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
+" let g:syntastic_auto_loc_list = 1
+" let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
-" let g:syntastic_enable_signs = 0
-" let g:syntastic_mode_map = {
-"     \ 'mode': 'passive',
-"     \ 'active_filetypes': [],
-"     \ 'passive_filetypes': [] }
 let g:syntastic_ruby_checkers = ['rubocop']
+let g:syntastic_javascript_checkers = ['eslint']
+let g:syntastic_javascript_eslint_exe = 'yarn run lint --'
+
+let g:syntastic_auto_loc_list = 0 " Don't auto open/close location list
+let g:syntastic_check_on_open = 0
+let g:syntastic_enable_signs = 0
+let g:syntastic_mode_map = { 'mode': 'passive', 'active_filetypes': [], 'passive_filetypes': [] }
 nnoremap <F6> :SyntasticCheck<CR> :lopen<CR>
 
 " Vim-rubocop -----------------------------------
-" let g:vimrubocop_config = '/path/to/rubocop.yml'
+let g:vimrubocop_config = '~/.vim/rubocop.yml'
 let g:vimrubocop_keymap = 0
 nmap <Leader>r :RuboCop<CR>
 
@@ -234,7 +243,7 @@ let g:vim_markdown_folding_disabled = 1
 let g:vim_markdown_new_list_item_indent = 2
 
 " Tagbar ----------------------------------------
-nmap <F8> :TagbarToggle<CR>
+" nmap <F8> :TagbarToggle<CR>
 
 " Surround --------------------------------------
 " ,# surround a word with #{ruby interpolation}
@@ -281,3 +290,16 @@ let g:UltiSnipsJumpForwardTrigger  ='<tab>'
 let g:UltiSnipsJumpBackwardTrigger ='<s-tab>'
 let g:UltiSnipsEditSplit = 'vertical'
 let g:UltiSnipsSnippetDirectories = ['~/.vim/UltiSnips', 'UltiSnips']
+
+" vim-javascript --------------------------------
+let g:javascript_plugin_flow = 1
+set foldmethod=syntax
+
+" vim-jsx ---------------------------------------
+let g:jsx_ext_required = 0
+" let g:jsx_pragma_required = 1
+
+" vim-hclfmt ------------------------------------
+let g:hcl_fmt_autosave = 0
+let g:tf_fmt_autosave = 0
+let g:nomad_fmt_autosave = 0

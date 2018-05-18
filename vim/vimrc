@@ -106,9 +106,9 @@ if has("gui_running")
   set guioptions-=m " Remove menu
 
   " fix background black color
-  hi Normal  guibg=#222
-  hi NonText guibg=#222
-  hi LineNr  guibg=#222
+  " hi Normal  guibg=#222
+  " hi NonText guibg=#222
+  " hi LineNr  guibg=#222
 else
   let g:CSApprox_loaded = 1
 endif
@@ -194,6 +194,10 @@ au BufNewFile,BufRead *.json set ft=javascript
 
 " add slim syntax highlighting
 au BufNewFile,BufRead *.slim set ft=slim
+
+" add config syntax highlighting
+" au BufNewFile,BufRead *.conf set ft=conf
+" unable unless nginx.vim disable
 
 " ====================================================================
 

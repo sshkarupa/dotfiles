@@ -1,6 +1,6 @@
 ## Installation
 
-Place `pre-commit` in `~/.git_template/hooks/pre-commit`
+Place `pre-commit` and `pre-commit.docker` in `~/.git_template/hooks/pre-commit`
 
 Add `~/.git_template` as your `templatedir` by running:
 
@@ -10,6 +10,13 @@ git config --global init.templatedir '~/.git_template'
 
 You will need to run `git init` in any existing repositories for the hook to begin working.
 You will also need to re-run `git init` if any changes are made to the `pre-commit` script.
+
+If you using docker in your progect run the following commands:
+
+```
+$ mv .git/hooks/pre-commit.docker .git/hooks/pre-commit
+$ chmod +x .git/hooks/pre-commit
+```
 
 **Note:** Requires `git >= 1.7.1`.
 
